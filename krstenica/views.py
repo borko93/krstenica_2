@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import krsteni_list
+from .models import krsteni_list 
 from .forms import krsteni_listForm
 from django.contrib import messages
 # Create your views here.

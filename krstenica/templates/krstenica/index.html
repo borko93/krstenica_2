@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <head>Kršteni list</head>
         <style>
             .submit_form{
@@ -19,6 +19,13 @@
 
     </head>
     <body>
+        {%if messages%}
+        {%for message in messages%}
+        <div class="alert alert-info">
+            <strong>{{message}}</strong>
+        </div>
+        {%endfor%}
+        {%endif%}
         <center class="row">
         <hr>
         <h3>Унос података<br> у <br> крштени лист</h3>

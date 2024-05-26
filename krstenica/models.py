@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class krsteni_list(models.Model):
@@ -22,10 +23,10 @@ class krsteni_list(models.Model):
     dijete_mana = models.CharField(max_length=5)
     sveštenik = models.CharField(max_length=50)
     kum = models.CharField(max_length=50)
-    strana_domovnika = models.CharField(max_length=10)
+    strana_domovnika = models.IntegerField()
     primjedba = models.TextField()
-    br_protokola = models.CharField(max_length=10)
-    datum = models.DateField(auto_now=True)
+    br_protokola = models.IntegerField()
+    datum = models.DateField(default=timezone.now)
     mjesto_izdavanja = models.CharField(max_length=20)
     parohija = models.CharField(max_length=30)
 

@@ -3,14 +3,22 @@ from django.utils import timezone
 
 
 
-DIJETE_BRACNO = (
-    ("Брачно", "Брачно"),
-    ("Брачно за грађанско правно подручје", "Брачно за грађанско правно подручје"),
-)
+
 
 # Create your models here.
 
 class krsteni_list(models.Model):
+    #Choices....
+    DIJETE_BRACNO = (
+    ("Брачно", "Брачно"),
+    ("Брачно за грађанско правно подручје", "Брачно за грађанско правно подручје"),
+)
+    DIJETE_BLIZANAC = (
+        ("Да", "Да"),
+        ("Не", "Не"),
+    )
+    #....choices
+
     knjiga = models.CharField(max_length=10)
     strana = models.CharField(max_length=1000)
     broj = models.CharField(max_length=100000)
@@ -27,7 +35,7 @@ class krsteni_list(models.Model):
     ime_prezime_zanimanje_roditelja = models.TextField()
     dijete_po_rođenju = models.CharField(max_length=10)
     dijete_bračno = models.CharField(max_length=50, choices=DIJETE_BRACNO)
-    dijete_blizanac = models.CharField(max_length=10)
+    dijete_blizanac = models.CharField(max_length=10, choices=DIJETE_BLIZANAC, default="Не")
     dijete_mana = models.CharField(max_length=5)
     sveštenik = models.CharField(max_length=50)
     kum = models.CharField(max_length=50)

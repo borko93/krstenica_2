@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
         <head>Kršteni list</head>
         <style>
@@ -14,16 +15,33 @@
             border-radius: 25px;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4),
                     0 6px 20px 0 rgba(0,0,0,0.36);
+            }
+            
+            .card {
+
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5),
+			0 6px 20px 0 rgba(0,0,0,0.39);
+background: lightpink;
+margin-bottom : 5%;
+border-radius: 25px;
+padding : 2%;
+overflow: auto;
+resize: both;
+text-overflow: ellipsis;
 }
+
 </style>
 
     </head>
-    <body>
+    <body class="container-fluid">
         {%if messages%}
         {%for message in messages%}
         <div class="alert alert-info">
             <strong>{{message}}</strong>
         </div>
+
+        <div class="row">
+        <div class="col-md-8">
         {%endfor%}
         {%endif%}
         <center class="row">
@@ -31,13 +49,18 @@
         <h3>Унос података<br> у <br> крштени лист</h3>
         <hr>
         </center>
+        <div class="card">
         <center>
+        
         <form method="POST">
             {%csrf_token%}
             {{forms}}
             <input type="submit" class="btn btn-default" value="ПОТВРДИ">
 
         </form>
+       
     </center>
+    </div>
+    </div>
     </body>
 </html>
